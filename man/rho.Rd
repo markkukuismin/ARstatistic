@@ -6,7 +6,7 @@
 \usage{
 rho(
   x,
-  y,
+  y = NULL,
   return_dist = FALSE,
   m = 10^4,
   ad_hoc_check = TRUE,

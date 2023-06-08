@@ -26,7 +26,22 @@
 #' hist(res$rho_minus_one_sample, probability = TRUE)
 #' @export
 
-rho_test_perm = function(x, y, R = 1000, verbose = FALSE, return_dist = TRUE){
+rho_test_perm = function(x, y = NULL, R = 1000, verbose = FALSE, return_dist = TRUE){
+
+  if(!(is.vector(x) || is.vector(y)))
+    stop("'x' and 'y' must be numeric vectors")
+  if(!is.vector(x) || is.null(y))
+    stop("supply both 'x' and 'y' ")
+  if(!(is.numeric(x) || is.logical(x)))
+    stop("'x' must be numeric")
+  stopifnot(is.atomic(x))
+  if(!(is.numeric(y) || is.logical(y)))
+    stop("'y' must be numeric")
+  stopifnot(is.atomic(y))
+  if(length(x) != length(y))
+    stop("'x' and 'y' must have the same length")
+  if (length(x) == 0L || length(y) == 0L)
+    stop("both 'x' and 'y' must be non-empty")
 
   rho_minus_ones = NA
 

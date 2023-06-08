@@ -4,7 +4,7 @@
 \alias{rho_test_perm}
 \title{rho_test_perm}
 \usage{
-rho_test_perm(x, y, R = 1000, verbose = FALSE, return_dist = TRUE)
+rho_test_perm(x, y = NULL, R = 1000, verbose = FALSE, return_dist = TRUE)
 }
 \arguments{
 \item{x}{a numeric vector.}

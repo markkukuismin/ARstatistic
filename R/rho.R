@@ -27,7 +27,22 @@
 #' @export
 #' @importFrom stats runif
 
-rho = function(x, y, return_dist = FALSE, m = 10^4, ad_hoc_check = TRUE, scale_monotone = TRUE){
+rho = function(x, y = NULL, return_dist = FALSE, m = 10^4, ad_hoc_check = TRUE, scale_monotone = TRUE){
+
+  if(!(is.vector(x) || is.vector(y)))
+    stop("'x' and 'y' must be numeric vectors")
+  if(!is.vector(x) || is.null(y))
+    stop("supply both 'x' and 'y' ")
+  if(!(is.numeric(x) || is.logical(x)))
+    stop("'x' must be numeric")
+  stopifnot(is.atomic(x))
+  if(!(is.numeric(y) || is.logical(y)))
+    stop("'y' must be numeric")
+  stopifnot(is.atomic(y))
+  if(length(x) != length(y))
+    stop("'x' and 'y' must have the same length")
+  if (length(x) == 0L || length(y) == 0L)
+    stop("both 'x' and 'y' must be non-empty")
 
   n = length(x)
 
