@@ -1,11 +1,14 @@
 Package: ARstatistic
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Measure the strength of association and inference of idependence using the probability of acceptance of the Accept-Reject sampling
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: Markku Kuismin
+Maintainer: Markku Kuismin <markku.kuismin.oulu@gmail.com>
+Description: Provides estimators and a permutation test for the A-R association statistic. For more details on the estimator, please refer to: Kuismin, M. (2023) <doi...>
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Depends: R (>= 4.2.0)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/markkukuismin/ARstatistic
+RoxygenNote: 7.2.3
