@@ -30,10 +30,10 @@ Computes the estimate of the A-R statistic and independence inference using a pe
 }
 \examples{
 set.seed(1)
-n = 100
-x = rnorm(100)
-y = rnorm(100)
-res = rho_test_perm(x, y)
+n <- 50
+x <- rnorm(n)
+y <- rnorm(n)
+res <- rho_test_perm(x, y)
 res$rho_minus_one_mean
 res$p_value
 hist(res$rho_minus_one_sample, probability = TRUE)

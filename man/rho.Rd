@@ -34,15 +34,15 @@ Estimator of the A-R statistic.
 }
 \examples{
 set.seed(1)
-n = 100
-x = rnorm(n)
-y = rnorm(n)
+n <- 100
+x <- rnorm(n)
+y <- rnorm(n)
 rho(x, y)
-d = rho(x, y, return_dist = TRUE)
+d <- rho(x, y, return_dist = TRUE)
 hist(d, probability = TRUE)
 
-y = (x - mean(x))^2 + rnorm(n, sd = 0.1)
+y <- (x - mean(x))^2 + rnorm(n, sd = 0.1)
 rho(x, y)
-d = rho(x, y, return_dist = TRUE)
+d <- rho(x, y, return_dist = TRUE)
 hist(d, probability = TRUE)
 }

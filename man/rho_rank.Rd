@@ -34,13 +34,13 @@ Estimator of the A-R statistic using ranks. Faster than \code{rho()} when variab
 }
 \examples{
 set.seed(1)
-n = 1000
-x = rnorm(n)
-y = rnorm(n)
+n <- 1000
+x <- rnorm(n)
+y <- rnorm(n)
 system.time(r <- rho(x, y))
 system.time(r_rank <- rho_rank(x, y))
 r; r_rank
 # When there are ties,
-x = sample(x, replace = TRUE)
+x <- sample(x, replace = TRUE)
 rho(x, y); rho_rank(x, y)
 }

@@ -17,16 +17,16 @@
 #'
 #' @examples
 #' set.seed(1)
-#' n = 100
-#' x = rnorm(100)
-#' y = rnorm(100)
-#' res = rho_test_perm(x, y)
+#' n <- 50
+#' x <- rnorm(n)
+#' y <- rnorm(n)
+#' res <- rho_test_perm(x, y)
 #' res$rho_minus_one_mean
 #' res$p_value
 #' hist(res$rho_minus_one_sample, probability = TRUE)
 #' @export
 
-rho_test_perm = function(x, y = NULL, R = 1000, verbose = FALSE, return_dist = TRUE){
+rho_test_perm <- function(x, y = NULL, R = 1000, verbose = FALSE, return_dist = TRUE){
 
   if(!(is.vector(x) || is.vector(y)))
     stop("'x' and 'y' must be numeric vectors")
@@ -43,25 +43,25 @@ rho_test_perm = function(x, y = NULL, R = 1000, verbose = FALSE, return_dist = T
   if (length(x) == 0L || length(y) == 0L)
     stop("both 'x' and 'y' must be non-empty")
 
-  rho_minus_ones = NA
+  rho_minus_ones <- NA
 
   if(return_dist){
-    rho_minus_ones = rho(x, y, return_dist = TRUE)
+    rho_minus_ones <- rho(x, y, return_dist = TRUE)
   }
 
-  rho_minus_one_mean = rho(x, y)
+  rho_minus_one_mean <- rho(x, y)
 
-  rho_minus_one_perm = rep(0, R)
+  rho_minus_one_perm <- rep(0, R)
 
   for(i in 1:R){
 
-    rho_minus_one_perm[i] = rho(sample(x), sample(y))
+    rho_minus_one_perm[i] <- rho(sample(x), sample(y))
 
     if(verbose) cat("\r", round(100*i/R, 2), "%")
 
   }
 
-  p_value = mean(rho_minus_one_perm > rho_minus_one_mean)
+  p_value <- mean(rho_minus_one_perm > rho_minus_one_mean)
 
   return(list(rho_minus_one_mean = rho_minus_one_mean,
               rho_minus_one_sample = rho_minus_ones,
